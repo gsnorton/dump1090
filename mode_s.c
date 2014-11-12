@@ -1163,7 +1163,13 @@ void displayModesMessage(struct modesMessage *mm) {
         printf("*");
 
     for (j = 0; j < mm->msgbits/8; j++) printf("%02x", mm->msg[j]);
-    printf(";\n");
+    printf(";");
+
+    if (Modes.raw_plus) {
+        printf(" %d;", mm->signalLevel);
+    }
+
+    printf("\n");
 
     if (Modes.raw) {
         fflush(stdout); // Provide data to the reader ASAP
