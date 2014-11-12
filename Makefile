@@ -28,3 +28,9 @@ view1090: view1090.o anet.o interactive.o mode_ac.o mode_s.o net_io.o
 
 clean:
 	rm -f *.o dump1090 view1090
+
+depend:
+	$(CC) $(CFLAGS) $(EXTRACFLAGS) -MM *.c > Makefile.depend
+
+include Makefile.depend
+
