@@ -1,0 +1,8 @@
+anet.o: anet.c anet.h
+dump1090.o: dump1090.c coaa.h dump1090.h anet.h
+interactive.o: interactive.c dump1090.h anet.h
+mode_ac.o: mode_ac.c dump1090.h anet.h
+mode_s.o: mode_s.c dump1090.h anet.h
+net_io.o: net_io.c dump1090.h anet.h
+ppup1090.o: ppup1090.c coaa.h ppup1090.h dump1090.h anet.h
+view1090.o: view1090.c coaa.h view1090.h dump1090.h anet.h
