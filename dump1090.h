@@ -290,6 +290,7 @@ struct {                             // Internal state
     int   nfix_crc;                  // Number of crc bit error(s) to correct
     int   check_crc;                 // Only display messages with good CRC
     int   raw;                       // Raw output format
+    int   raw_plus;                  // Raw output format with additional info
     int   beast;                     // Beast binary format output
     int   mode_ac;                   // Enable decoding of SSR Modes A & C
     int   debug;                     // Debugging mode

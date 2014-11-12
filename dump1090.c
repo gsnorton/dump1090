@@ -691,6 +691,9 @@ int main(int argc, char **argv) {
             Modes.phase_enhance = 1;
         } else if (!strcmp(argv[j],"--raw")) {
             Modes.raw = 1;
+        } else if (!strcmp(argv[j],"--raw-plus")) {
+            Modes.raw = 1;
+            Modes.raw_plus = 1;
         } else if (!strcmp(argv[j],"--net")) {
             Modes.net = 1;
         } else if (!strcmp(argv[j],"--modeac")) {
