@@ -1166,7 +1166,12 @@ void displayModesMessage(struct modesMessage *mm) {
     printf(";");
 
     if (Modes.raw_plus) {
-        printf(" %d;", mm->signalLevel);
+        printf(" %d; ", mm->signalLevel);
+
+        for(j = 0; j < 4; j++)
+            printf("%02X", Modes.dev_id[j]);
+
+        printf(";");
     }
 
     printf("\n");
