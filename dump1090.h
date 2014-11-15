@@ -65,6 +65,8 @@
     #include "anet.h"
 #endif
 
+#include <openssl/md5.h>
+
 // ============================= #defines ===============================
 //
 // If you have a valid coaa.h, these values will come from it. If not,
@@ -266,6 +268,8 @@ struct {                             // Internal state
     rtlsdr_dev_t *dev;
     int           freq;
     int           ppm_error;
+
+    unsigned char dev_id[MD5_DIGEST_LENGTH];
 
     // Networking
     char           aneterr[ANET_ERR_LEN];
