@@ -204,9 +204,23 @@ void modesInitRTLSDR(void) {
 
     fprintf(stderr, "Found %d device(s):\n", device_count);
     for (j = 0; j < device_count; j++) {
+        memset(vendor, '\0', 256);
+        memset(product, '\0', 256);
+        memset(serial, '\0', 256);
+
         rtlsdr_get_device_usb_strings(j, vendor, product, serial);
         fprintf(stderr, "%d: %s, %s, SN: %s %s\n", j, vendor, product, serial,
             (j == Modes.dev_index) ? "(currently selected)" : "");
+
+        if(j == Modes.dev_index) {
+             MD5_CTX md5_ctx;
+
+             MD5_Init(&md5_ctx);
+             MD5_Update(&md5_ctx, vendor, 256);
+             MD5_Update(&md5_ctx, product, 256);
+             MD5_Update(&md5_ctx, serial, 256);
+             MD5_Final(Modes.dev_id, &md5_ctx);
+        }
     }
 
     if (rtlsdr_open(&Modes.dev, Modes.dev_index) < 0) {
