@@ -1166,10 +1166,21 @@ void displayModesMessage(struct modesMessage *mm) {
     printf(";");
 
     if (Modes.raw_plus) {
-        printf(" %d; ", mm->signalLevel);
+        printf("%06X;%d", mm->addr, mm->signalLevel);
+
+        if(0 != mm->altitude) { printf(" %d", mm->altitude); }
+
+        if(0.0 != mm->fLat) { printf(" %lf", mm->fLat); }
+        if(0.0 != mm->fLon) { printf(" %lf", mm->fLon); }
+
+#if 0
+
+        printf(";");
 
         for(j = 0; j < 4; j++)
             printf("%02X", Modes.dev_id[j]);
+
+#endif
 
         printf(";");
     }
