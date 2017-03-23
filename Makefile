@@ -11,7 +11,7 @@ EXTRACFLAGS=-DHTMLPATH=\"$(SHAREDIR)\"
 endif
 
 CFLAGS=-O2 -g -Wall -W `pkg-config --cflags librtlsdr`
-LIBS=`pkg-config --libs librtlsdr` -lpthread -lm -lcrypto
+LIBS=`pkg-config --libs librtlsdr` /usr/local/lib/librtlsdr.so -lpthread -lm -lcrypto
 CC=gcc
 
 
